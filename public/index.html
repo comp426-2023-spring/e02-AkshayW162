@@ -1,12 +1,41 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <title>Rock</title>
-        <!-- Link to your script file(s) and CSS in here somewhere -->
+        <meta charset="UTF-8">
+        <title>RPS and RPLS</title>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-
-    <!-- Your interface markup goes here -->
-    <!-- For interface examples, look in the `/examples/` directory in the root of your starter code repo. -->
-
+        <div class="ruleInfo">
+            <a href="https://www.wikihow.com/Play-Rock,-Paper,-Scissors">RPS Rules </a>
+            <br>
+            <a href="https://www.wikihow.com/Play-Rock-Paper-Scissors-Lizard-Spock">RPSLS Rules</a>
+        </div>
+        <div>
+            <br>
+            <label for="gameMode">Choose game mode:</label>
+            <div class="dropdown">
+                <select id="gameMode">
+                   
+                    <option value="rpsls">Rock-Paper-Scissors-Lizard-Spock (RPSLS)</option>
+                    <option value="rps">Rock-Paper-Scissors (RPS)</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <br>
+            <label for="oppType">Choose Opponent:</label>
+            <div class="dropdown">
+                <select id="oppType">
+                    <option value="opponent">Opponent</option>
+                    <option value="random">Random Draw</option>
+                </select>
+            </div>
+            <br>
+            <div id="playContainer"></div>
+            <button id="playButton" type="button" onclick="play()">Play</button>
+            <div id="resultContainer"></div>
+        </div>
+        <script src="scripts.js"></script>
     </body>
 </html>

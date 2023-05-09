@@ -25,6 +25,11 @@
   "dependencies": {
     "express": "^4.18.2",
     "minimist": "^1.2.8",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "node-rps": "^0.0.4",
+    "node-rpsls": "^1.0.0",
+    "nodemon": "^2.0.22",
+    "rpsls": "^0.9.0",
+    "server.js": "^1.0.0"
   }
 }

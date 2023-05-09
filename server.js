@@ -71,6 +71,45 @@ app.use(morgan(':remote-addr - :remote-user [:date[iso]] ":method :url HTTP/:htt
 // Serve static files
 const staticpath = args.stat || args.s || process.env.STATICPATH || path.join(__dirname, 'public')
 app.use('/', express.static(staticpath))
+
+//Get the root endpoint of your app
+app.get('/app', (req, res) => { res.status(200).send("200 OK"); });
+
+
+//Play RPS
+app.get('/app/rps', (req, res) => { res.status(200).send(rps()); });
+
+
+//Play RPSLS
+app.get('/app/rpsls', (req, res) => { res.status(200).send(rpsls()); });
+
+
+//Play RPS against an opponent (URLEncoded data body)
+app.get('/app/rps/play', (req, res) => { res.status(200).send(rps(req.query.shot)); });
+
+
+//Play RPSLS against an opponent (URLEncoded data body)
+app.get('/app/rpsls/play', (req, res) => { res.status(200).send(rpsls(req.query.shot)); });
+
+
+//Play RPS against an opponent (JSON data body)
+app.post('/app/rps/play', (req, res) => { res.status(200).send(rps(req.body.shot)); });
+
+
+//Play RPSLS against an opponent (JSON data body)
+app.post('/app/rpsls/play', (req, res) => { res.status(200).send(rpsls(req.body.shot)); });
+
+
+//Play RPS against an opponent (parameter endpoint)
+app.get('/app/rps/play/:shot', (req, res) => { res.status(200).send(rps(req.params.shot)); });
+
+
+//Play RPSLS against an opponent (parameter endpoint)
+app.get('/app/rpsls/play/:shot', (req, res) => { res.status(200).send(rpsls(req.params.shot)); });
+
+
+//Call a nonexistent endpoint
+app.get('*', (req, res) => { res.status(400).send("404 NOT FOUND"); });
 // Create app listener
 const server = app.listen(port)
 // Create a log entry on start
